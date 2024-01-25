@@ -1,33 +1,8 @@
-URL: /
-Timestamp: Sun Jan 21 2024 16:43:14 GMT+0100 (GMT+01:00)
-
-URL: /
-Timestamp: Sun Jan 21 2024 16:44:26 GMT+0100 (GMT+01:00)
-
-URL: /favicon.ico
-Timestamp: Sun Jan 21 2024 16:44:26 GMT+0100 (GMT+01:00)
-
-URL: /documentation
-Timestamp: Sun Jan 21 2024 16:44:36 GMT+0100 (GMT+01:00)
-
-URL: /favicon.ico
-Timestamp: Sun Jan 21 2024 16:44:36 GMT+0100 (GMT+01:00)
-
-URL: /fdssfd
-Timestamp: Sun Jan 21 2024 16:50:25 GMT+0100 (GMT+01:00)
-
-URL: /favicon.ico
-Timestamp: Sun Jan 21 2024 16:50:25 GMT+0100 (GMT+01:00)
-
-URL: /documentation
-Timestamp: Sun Jan 21 2024 16:50:31 GMT+0100 (GMT+01:00)
-
-URL: /favicon.ico
-Timestamp: Sun Jan 21 2024 16:50:31 GMT+0100 (GMT+01:00)
-
-URL: /fdssfd
-Timestamp: Sun Jan 21 2024 16:50:35 GMT+0100 (GMT+01:00)
-
-URL: /favicon.ico
-Timestamp: Sun Jan 21 2024 16:50:36 GMT+0100 (GMT+01:00)
-
+::1 - - [25/Jan/2024:10:39:31 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [25/Jan/2024:10:39:36 +0000] "GET /movies HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::1 - - [25/Jan/2024:10:39:45 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8080/movies" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2024:10:45:12 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2024:10:45:18 +0000] "GET /movies HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2024:10:45:41 +0000] "GET /documentation.html HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2024:10:49:01 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+::ffff:127.0.0.1 - - [25/Jan/2024:10:49:07 +0000] "GET /movies HTTP/1.1" 304 - "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
