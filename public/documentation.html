@@ -46,8 +46,8 @@
     "id": "int",
     "Name": "string",
     "Bio": "string",
-    "Birth": "Date",
-    "Death": "Date"
+    "Birth": "string",
+    "Death": "string"
   },
   "ImagePath": "string",
   "Featured": "boolean"
@@ -73,8 +73,8 @@
   "id": "int",
   "Name": "string",
   "Bio": "string",
-  "Birth": "Date",
-  "Death": "Date"
+  "Birth": "string",
+  "Death": "string"
 }
         </pre>
       </td>
@@ -88,7 +88,8 @@
 {
   "Username": "string",
   "Password": "string",
-  "Email": "string"
+  "Email": "string",
+  "Birthday": "Date"
 }
         </pre>
       </td>
@@ -108,22 +109,44 @@
       </td>
     </tr>
     <tr>
-      <td>Allow users to update their info (username)</td>
-      <td>/users/[username]/username/[newUsername]</td>
+      <td>Allow users to update their info</td>
+      <td>/users/[username]</td>
       <td>PUT</td>
-      <td>None</td>
-      <td>A text message indicating that the username was successfully updated</td>
+      <td>A JSON object, holding updated data about the user, structured like:<br>
+        <pre>
+{
+  "Username": "string",
+  "Password": "string",
+  "Email": "string",
+  "Birthday": "Date"
+}
+        </pre>
+      </td>
+      <td>A JSON object, holding data about the updated user info.<br>
+      <pre>
+{
+"id" : "int",‚
+"Username": "string",
+"Password": "string",
+"Email": "string",
+"Birthday": "Date",
+"FavoriteMovies": [
+  "string"
+]
+}
+      </pre>
+    </td>
     </tr>
     <tr>
       <td>Allow users to add a movie to their list of favorites</td>
-      <td>/users/[username]/favoritemovies/[newFavoriteMovie]</td>
-      <td>PUT</td>
+      <td>/users/[username]/movies/[MovieID]</td>
+      <td>POST</td>
       <td>None</td>
       <td>A text message indicating that the movie was successfully added to the list</td>
     </tr>
     <tr>
       <td>Allow users to remove a movie from their list of favorites</td>
-      <td>/users/[username]/favoritemovies/[movieToDelete]</td>
+      <td>/users/[username]/movies/[MovieID]</td>
       <td>DELETE</td>
       <td>None</td>
       <td>A text message indicating that the movie was successfully removed from the list</td>
