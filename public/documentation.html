@@ -19,6 +19,7 @@
       <th>HTTP Method</th>
       <th>Request body data format</th>
       <th>Response body data format</th>
+      <th>Example</th>
     </tr>
     <tr>
       <td>Get a list of all movies</td>
@@ -26,6 +27,7 @@
       <td>GET</td>
       <td>None</td>
       <td>A JSON object holding a list of all movies</td>
+      <td>http://localhost:8080/movies</td>
     </tr>
     <tr>
       <td>Get data about a single movie</td>
@@ -54,6 +56,7 @@
 }
         </pre>
       </td>
+      <td>http://localhost:8080/movies/Goodfellas</td>
     </tr>
     <tr>
       <td>Get data about a single genre</td>
@@ -61,6 +64,7 @@
       <td>GET</td>
       <td>None</td>
       <td>A text, describing a specific genre</td>
+      <td>http://localhost:8080/movies/genres/Crime</td>
     </tr>
     <tr>
       <td>Get data about a director</td>
@@ -78,6 +82,7 @@
 }
         </pre>
       </td>
+      <td>http://localhost:8080/movies/directors/Martin%20Scorsese</td>
     </tr>
     <tr>
       <td>Allow new users to register</td>
@@ -107,8 +112,48 @@
 }
         </pre>
       </td>
+      <td>http://localhost:8080/users
+      <pre>
+{
+  "Username": "testUser",
+  "Password": "test123",
+  "Email": "test@test.org",
+  "Birthday": "09/09/1999"
+}
+      </pre>
+      </td>
     </tr>
     <tr>
+      <td>Allow registered users to login</td>
+      <td>/login</td>
+      <td>POST</td>
+      <td>A Username and Password-Parameter:<br>
+        <pre>
+Username: Username
+Password: Password
+        </pre>
+      </td>
+      <td>A JSON object, holding data about the user, including an token:<br>
+        <pre>
+{
+  "user": {
+      "_id": "int",
+      "Username": "string",
+      "Password": "string",
+      "Email": "string",
+      "Birthday": "Date",
+      "FavoriteMovies": [
+          "string"
+      ],
+      "__v": "int"
+  },
+  "token": "string"
+}
+        </pre>
+      </td>
+      <td>http://localhost:8080/login?Username=testUser&Password=test123</td>
+    </tr>
+    <tr>      
       <td>Allow users to update their info</td>
       <td>/users/[username]</td>
       <td>PUT</td>
@@ -135,6 +180,16 @@
 ]
 }
       </pre>
+      <td>http://localhost:8080/users
+        <pre>
+{
+  "Username": "testUser",
+  "Password": "newtest123",
+  "Email": "test@test.org",
+  "Birthday": "09/09/1999"
+}
+      </pre>
+      </td>
     </td>
     </tr>
     <tr>
@@ -143,6 +198,7 @@
       <td>POST</td>
       <td>None</td>
       <td>A text message indicating that the movie was successfully added to the list</td>
+      <td>http://localhost:8080/users/authtest/movies/65cf55a3d2e308d2a201d9c4</td>
     </tr>
     <tr>
       <td>Allow users to remove a movie from their list of favorites</td>
@@ -150,6 +206,7 @@
       <td>DELETE</td>
       <td>None</td>
       <td>A text message indicating that the movie was successfully removed from the list</td>
+      <td>http://localhost:8080/users/authtest/movies/65cf55a3d2e308d2a201d9c4</td>
     </tr>
     <tr>
       <td>Allow existing users to deregister</td>
@@ -157,6 +214,7 @@
       <td>DELETE</td>
       <td>None</td>
       <td>A text message indicating that the user was successfully removed</td>
+      <td>http://localhost:8080/users/testUser</td>
     </tr>
   </table>
 </body>
