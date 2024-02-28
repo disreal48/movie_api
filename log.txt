@@ -153,3 +153,7 @@
 ::1 - - [25/Feb/2024:15:00:05 +0000] "GET /css/styles.css HTTP/1.1" 304 - "http://localhost:8080/documentation.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
 ::1 - - [25/Feb/2024:15:00:28 +0000] "GET /documentation.html HTTP/1.1" 200 5735 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
 ::1 - - [25/Feb/2024:15:00:29 +0000] "GET /css/styles.css HTTP/1.1" 304 - "http://localhost:8080/documentation.html" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+::1 - - [25/Feb/2024:21:43:34 +0000] "POST /users/ HTTP/1.1" 201 180 "-" "PostmanRuntime/7.36.3"
+::1 - - [25/Feb/2024:21:44:17 +0000] "DELETE /users/hashedUser HTTP/1.1" 401 - "-" "PostmanRuntime/7.36.3"
+::1 - - [25/Feb/2024:21:46:35 +0000] "POST /users/ HTTP/1.1" 201 224 "-" "PostmanRuntime/7.36.3"
+::1 - - [25/Feb/2024:21:47:30 +0000] "GET /movies HTTP/1.1" 201 5248 "-" "PostmanRuntime/7.36.3"
