@@ -40,7 +40,13 @@ let auth = require("./auth")(app);
 const passport = require("passport");
 require("./passport");
 
-mongoose.connect("mongodb://localhost:27017/moviesDB", {
+//For local database
+// mongoose.connect("mongodb://localhost:27017/moviesDB", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+mongoose.connect("process.env.CONNECTION_URI", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
