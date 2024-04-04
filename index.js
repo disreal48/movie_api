@@ -259,6 +259,26 @@ app.post(
   }
 );
 
+//View a user's favorite movies
+app.get(
+  "/users/:Username/movies",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    if (req.user.Username !== req.params.Username) {
+      return res.status(400).send("Permission denied");
+    }
+    await Users.findOne({ Username: req.params.Username })
+      .populate("FavoriteMovies")
+      .then((user) => {
+        res.json(user.FavoriteMovies);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error: " + err);
+      });
+  }
+);
+
 //Delete a movie from a user's list of favorites
 app.delete(
   "/users/:Username/movies/:MovieID",
