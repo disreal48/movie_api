@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 const cors = require("cors");
 let allowedOrigins = [
   "http://localhost:8080",
-  "disdb.netlify.app",
+  "https://disdb.netlify.app",
   "http://localhost:1234",
 ];
 app.use(
