@@ -20,6 +20,7 @@ let allowedOrigins = [
   "http://localhost:8080",
   "https://disdb.netlify.app",
   "http://localhost:1234",
+  "http://localhost:4200",
 ];
 app.use(
   cors({
