@@ -21,7 +21,7 @@ let allowedOrigins = [
   "https://disdb.netlify.app",
   "http://localhost:1234",
   "http://localhost:4200",
-  "https://disreal48.github.io/",
+  "https://disreal48.github.io/myFlix-Angular-client/",
 ];
 app.use(
   cors({
