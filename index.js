@@ -1,3 +1,8 @@
+/**
+ * @fileoverview This is the main file for the movie API.
+ * It contains the routes and handlers for various movie-related operations.
+ */
+
 const mongoose = require("mongoose");
 const Models = require("./models.js");
 const Movies = Models.Movie;
@@ -65,6 +70,12 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, "log.txt"), {
 app.use(morgan("combined", { stream: accessLogStream }));
 
 // GET requests
+
+/**
+ * Route for the home page.
+ * @route GET /
+ * @returns {string} Welcome message
+ */
 app.get("/", (req, res) => {
   res.send("Welcome to my movie database!");
 });
@@ -72,6 +83,14 @@ app.get("/", (req, res) => {
 app.use(express.static("public"));
 
 // GET all movies
+
+/**
+ * Route for getting all movies.
+ * @route GET /movies
+ * @group Movies - Operations related to movies
+ * @returns {Array} Array of movie objects
+ * @security JWT
+ */
 app.get(
   "/movies",
   passport.authenticate("jwt", { session: false }),
@@ -88,6 +107,14 @@ app.get(
 );
 
 // GET a movie by title
+
+/**
+ * Route for getting a movie by title.
+ * @route GET /movies/{Title}
+ * @group Movies - Operations related to movies
+ * @param {string} Title.path.required - The title of the movie
+ * @returns {Object} Movie object
+ */
 app.get("/movies/:Title", async (req, res) => {
   await Movies.findOne({ Title: req.params.Title })
     .then((movie) => {
@@ -100,6 +127,15 @@ app.get("/movies/:Title", async (req, res) => {
 });
 
 // Get a description of a genre
+
+/**
+ * Route for getting the description of a genre.
+ * @route GET /movies/genres/{Genre}
+ * @group Movies - Operations related to movies
+ * @param {string} Genre.path.required - The genre of the movie
+ * @returns {string} Description of the genre
+ * @security JWT
+ */
 app.get(
   "/movies/genres/:Genre",
   passport.authenticate("jwt", { session: false }),
@@ -116,6 +152,15 @@ app.get(
 );
 
 // Get a description of a director
+
+/**
+ * Route for getting the description of a director.
+ * @route GET /movies/directors/{Director}
+ * @group Movies - Operations related to movies
+ * @param {string} Director.path.required - The director of the movie
+ * @returns {string} Description of the director
+ * @security JWT
+ */
 app.get(
   "/movies/directors/:Director",
   passport.authenticate("jwt", { session: false }),
@@ -132,6 +177,17 @@ app.get(
 );
 
 //Create a new user
+
+/**
+ * Route for creating a new user.
+ * @route POST /users
+ * @group Users - Operations related to users
+ * @param {string} Username.body.required - The username of the user
+ * @param {string} Password.body.required - The password of the user
+ * @param {string} Email.body.required - The email of the user
+ * @param {string} Birthday.body - The birthday of the user
+ * @returns {Object} Created user object
+ */
 app.post(
   "/users",
   [
@@ -178,6 +234,13 @@ app.post(
 
 //Get all users
 
+/**
+ * Route for getting all users.
+ * @route GET /users
+ * @group Users - Operations related to users
+ * @returns {Array} Array of user objects
+ * @security JWT
+ */
 app.get(
   "/users",
   passport.authenticate("jwt", { session: false }),
@@ -194,6 +257,18 @@ app.get(
 );
 
 //Update a user's information
+
+/**
+ * Route for updating a user's information.
+ * @route PUT /users/{Username}
+ * @group Users - Operations related to users
+ * @param {string} Username.path.required - The username of the user
+ * @param {string} Password.body.required - The password of the user
+ * @param {string} Email.body.required - The email of the user
+ * @param {string} Birthday.body - The birthday of the user
+ * @returns {Object} Updated user object
+ * @security JWT
+ */
 app.put(
   "/users/:Username",
   [
@@ -238,6 +313,16 @@ app.put(
 );
 
 //Add a movie to a user's list of favorites
+
+/**
+ * Route for adding a movie to a user's list of favorites.
+ * @route POST /users/{Username}/movies/{MovieID}
+ * @group Users - Operations related to users
+ * @param {string} Username.path.required - The username of the user
+ * @param {string} MovieID.path.required - The ID of the movie
+ * @returns {Object} Updated user object
+ * @security JWT
+ */
 app.post(
   "/users/:Username/movies/:MovieID",
   passport.authenticate("jwt", { session: false }),
@@ -263,6 +348,15 @@ app.post(
 );
 
 //View a user's favorite movies
+
+/**
+ * Route for getting a user's favorite movies.
+ * @route GET /users/{Username}/movies
+ * @group Users - Operations related to users
+ * @param {string} Username.path.required - The username of the user
+ * @returns {Array} Array of movie objects
+ * @security JWT
+ */
 app.get(
   "/users/:Username/movies",
   passport.authenticate("jwt", { session: false }),
@@ -283,6 +377,16 @@ app.get(
 );
 
 //Delete a movie from a user's list of favorites
+
+/**
+ * Route for deleting a movie from a user's list of favorites.
+ * @route DELETE /users/{Username}/movies/{MovieID}
+ * @group Users - Operations related to users
+ * @param {string} Username.path.required - The username of the user
+ * @param {string} MovieID.path.required - The ID of the movie
+ * @returns {Object} Updated user object
+ * @security JWT
+ */
 app.delete(
   "/users/:Username/movies/:MovieID",
   passport.authenticate("jwt", { session: false }),
@@ -308,6 +412,15 @@ app.delete(
 );
 
 //Delete a user
+
+/**
+ * Route for deleting a user.
+ * @route DELETE /users/{Username}
+ * @group Users - Operations related to users
+ * @param {string} Username.path.required - The username of the user
+ * @returns {string} Success message
+ * @security JWT
+ */
 app.delete(
   "/users/:Username",
   passport.authenticate("jwt", { session: false }),
