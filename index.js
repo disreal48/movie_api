@@ -17,10 +17,10 @@ app.use(express.urlencoded({ extended: true }));
 //CORS
 const cors = require("cors");
 let allowedOrigins = [
-  "http://localhost:8080",
+  // "http://localhost:8080",
   "https://disdb.netlify.app",
-  "http://localhost:1234",
-  "http://localhost:4200",
+  // "http://localhost:1234",
+  // "http://localhost:4200",
   "https://disreal48.github.io/myFlix-Angular-client/",
   "https://disreal48.github.io",
 ];
